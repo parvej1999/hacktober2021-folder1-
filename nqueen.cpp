@@ -27,3 +27,21 @@ bool isSafe(int board[][n], int row, int col){
     }
     return true;
 }
+
+bool solve(int board[][n], int row){
+    if(row>=n)
+        return true;
+    
+    printSol(board);
+    system("clear");
+    for(int col = 0; col<n; col++){
+        if(isSafe(board, row, col)){
+            board[row][col] = 1;
+            if(solve(board, row+1))
+                return true;
+            board[row][col] = 0;
+        }
+    }
+    return false;
+}
+
