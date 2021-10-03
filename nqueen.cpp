@@ -11,3 +11,19 @@ void printSol(int board[][n]){
         cout<<endl;
     }
 }
+
+bool isSafe(int board[][n], int row, int col){
+    for(int i=n; i>=0; i--){
+        if(board[i][col] == 1)
+         return false;
+    }
+    for(int i=row, j=col; i>=0 and j>=0; i--, j--){
+        if(board[i][j] == 1)
+            return false;
+    }
+    for(int i=row,j=col; i>=0 and j<n; i--, j++){
+        if(board[i][j] == 1)
+            return false;
+    }
+    return true;
+}
