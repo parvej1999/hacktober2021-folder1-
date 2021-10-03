@@ -83,14 +83,64 @@ void deleteNode(node **head, int key){
 }
 
 // ====================================================================DELETION END ====================================================================
-
-int middleElement(node** head){
-	if(*head == NULL)return -1;
-	node* slow=*head;
-	node* fast=*head;
-	while(fast!=NULL && fast->next != NULL){
-		slow = slow->next;
-		fast = fast->next->next;	
+int main(){
+	int n;
+	cout<<"enter the number to insert: ";
+	cin>>n;
+	node* head = NULL;
+	int data;
+	for(int i=0; i<n; i++){
+		cin>>data;
+		append(data, &head);
 	}
-	return slow->data;
+	cout<<"your final linked list is:\n";
+	printList(head);
+	char choice;
+	while(true){
+		cout<<"=========MENU==========\nTo Push Press 1\nTo Append Press 2 \nTo insert Press 3\nTo Delete Press 4\nTo Print Mid Press 5\nEnter\t:";
+		cin>>choice;
+		if(toupper(choice) == '1'){
+			int data;
+			cout<<"enter the data value: ";
+			cin>>data;
+			push(data, &head);
+			printList(head);
+		}
+		else  if(choice == '2'){
+			int data , count;
+			cout<<"enter the data value: ";
+			cin>>data;
+			append(data, &head);
+			printList(head);
+		}
+
+		else  if(choice == '3'){
+			int data , count;
+			cin>>data;
+			cin>>count;
+			insert(data, &head, count);
+			printList(head);
+		}
+
+		else  if(choice == '4'){
+			int key;
+			cin>>key;
+			deleteNode(&head, key);
+			printList(head);
+		}
+
+		else  if(choice == '5'){
+			cout<<"Middle: "<<middleElement(&head)<<endl;
+			printList(head);
+		}
+
+		else
+		{
+			cout<<"GOOD BYE KEEP SMILING :)"<<endl;
+			break;	
+		}
+	}
+
+
+  return 0;
 }
