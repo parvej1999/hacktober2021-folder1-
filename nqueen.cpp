@@ -45,3 +45,18 @@ bool solve(int board[][n], int row){
     return false;
 }
 
+int main(){
+    
+    int board[n][n];
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n; j++){
+            board[i][j] = 0;
+        }
+    }
+    if(solve(board,0))
+        printSol(board);
+    else
+        cout<<"Not Sovable"<<endl;
+    return 0;   
+}
+
