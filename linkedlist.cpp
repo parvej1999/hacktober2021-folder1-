@@ -51,3 +51,14 @@ void insert(int newData, node** head, int afterCount)
 	prev->next = newNode;
 	newNode->next = curr;
 }
+
+void printList(node* head){
+	while(head != NULL)
+	{
+		cout<<head->data<<"->";;
+		head = head->next;
+	}
+	cout<<endl<<endl;
+}
+
+
