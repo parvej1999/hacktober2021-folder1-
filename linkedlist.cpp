@@ -32,3 +32,22 @@ void append(int newData, node** head)
 		last->next = newNode;
 	}
 }
+
+void insert(int newData, node** head, int afterCount)
+{
+	if(*head == NULL){
+		cout<<"Linked List is Empty";
+		return;
+	}
+	node* newNode = new node();
+	newNode->data=newData;
+	node *curr = *head, *prev = curr;
+	int count = 0;
+	while(curr != NULL && count < afterCount){
+		prev = curr;
+		curr=curr->next;
+		count+=1;
+	}
+	prev->next = newNode;
+	newNode->next = curr;
+}
