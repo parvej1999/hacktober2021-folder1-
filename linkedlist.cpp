@@ -83,3 +83,14 @@ void deleteNode(node **head, int key){
 }
 
 // ====================================================================DELETION END ====================================================================
+
+int middleElement(node** head){
+	if(*head == NULL)return -1;
+	node* slow=*head;
+	node* fast=*head;
+	while(fast!=NULL && fast->next != NULL){
+		slow = slow->next;
+		fast = fast->next->next;	
+	}
+	return slow->data;
+}
