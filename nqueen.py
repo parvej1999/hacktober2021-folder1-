@@ -14,3 +14,7 @@ def printBoard(board, n):
         print()
         # print("---------------------------------")
         print(string)
+
+        def isSafe(board, row, col, n):
+   
+    
