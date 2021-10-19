@@ -28,3 +28,12 @@ def isSafe(board, row, col, n):
             return False
         r-=1
         c-=1
+    r=row
+    c=col
+    while(r>=0 and c<n):
+        if board[r][c] == 1:
+            return False
+        r-=1
+        c+=1
+
+    return True
