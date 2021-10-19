@@ -37,6 +37,24 @@ def isSafe(board, row, col, n):
         c+=1
 
     return True
+
+
+def solve(board, row, n):
+    if(row>=n):
+        return True
+
+    for col in range(0, n):
+        # printBoard(board, n)
+        # time.sleep(0.01)
+        # os.system("clear")
+        if(isSafe(board, row, col , n)):
+            board[row][col] = 1
+            if(solve(board, row+1, n)):
+                return True
+            board[row][col] = 0
+
+            def main():
+
 def main():
     n = int(input("Enter The Number of Rows "))
     board = [[0 for i in range(0, n)]for j in range(0, n)]
@@ -50,6 +68,5 @@ def main():
     else:
         print("Can Not Be Solved")
         printBoard(board, n)
-
 
 main()
